@@ -12,9 +12,43 @@ export default {
     value: [String, Boolean]
   },
   computed: {
+    queryString() {
+      return this.$featureToggle.queryString
+    },
+
+    isQueryStringAllowed() {
+      return this.queryString && this.isAllowed()
+    },
+
+    queryStringKey() {
+      return `toggle_${this.name}`
+    },
+
+    canShowWithQueryString() {
+      const key = this.queryStringKey
+
+      return this.$route.query[key] == this.value + ''
+    },
+
     canShow() {
       return (
-        this.$featureToggles && this.$featureToggles[this.name] === this.value
+        (this.$featureToggle &&
+          this.$featureToggle.toggles &&
+          this.$featureToggle.toggles[this.name] === this.value &&
+          !this.queryString) ||
+        (this.queryString &&
+          this.isQueryStringAllowed &&
+          this.canShowWithQueryString)
+      )
+    }
+  },
+  methods: {
+    isAllowed() {
+      const isQueryStringAllowed = this.$featureToggle.isQueryStringAllowedFn
+
+      return (
+        this.queryString &&
+        (!isQueryStringAllowed || isQueryStringAllowed(this.$props))
       )
     }
   }
