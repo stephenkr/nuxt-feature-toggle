@@ -57,6 +57,13 @@ export default {
   },
 
   featureToggle: {
+    queryString: {
+      isEnabled: true,
+      isAllowed: () => {
+        return true
+      }
+    },
+
     toggles: () => {
       return Promise.resolve({
         'my-unique-key': true
