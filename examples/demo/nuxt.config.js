@@ -56,7 +56,7 @@ export default {
     }
   },
 
-  featureToggles: {
+  featureToggle: {
     toggles: () => {
       return Promise.resolve({
         'my-unique-key': true
