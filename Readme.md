@@ -1,11 +1,9 @@
 <h1 align="center">nuxt-feature-toggle</h1>
-<p align="center">The nuxt feature toggle module</p>
+<p align="center">This is a simple module for Nuxt.js to add support for a feature toggle system.</p>
 
 <p align="center">
   <a href="./CHANGELOG.md">Release notes</a>
 </p>
-
-This is a simple module for Nuxt.js to add support for a feature toggle system.
 
 ## Features
 - Dynamically pull in your feature toggles when the application starts
