@@ -89,3 +89,7 @@ https://website.com?toggle_my-unique-key=false
 ```
 
 This will set the feature toggle 'my-unique-key' to false when viewing the page.
+
+# License
+
+<a href="./LICENSE">MIT License</a>
