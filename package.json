@@ -1,15 +1,17 @@
 {
   "name": "nuxt-feature-toggle",
   "description": "Feature toggle module for Nuxt.js",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "lib/module/index.js",
   "license": "MIT",
   "scripts": {
     "start": "nuxt start examples/demo",
+    "build": "nuxt build examples/demo",
     "dev": "nuxt examples/demo",
     "lint": "eslint lib test",
     "lint-fix": "eslint --fix lib test",
     "test": "npm run lint && jest",
+    "preview": "standard-version --dry-run",
     "release": "standard-version && git push --follow-tags && npm publish"
   },
   "contributors": [
@@ -18,6 +20,12 @@
       "url": "https://github.com/stephenkr"
     }
   ],
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "cross-env": "^5.2.0",
     "nuxt": "^2.4.0",
