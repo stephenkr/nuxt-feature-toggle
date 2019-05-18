@@ -61,12 +61,7 @@ To use the query string with your feature toggles, first enable it in your confi
 ```
 module.exports = {
   modules: ['nuxt-feature-toggle'],
-  queryString: {
-    isEnabled: true,
-    isAllowed: () => {
-      return true;
-    }
-  },
+  queryString: true,
 
   featureToggle: {
     toggles: {
@@ -76,9 +71,25 @@ module.exports = {
 }
 ```
 
-The option `isAllowed` is used to ensure the current session can access the feature toggle defined by the query string.
+The option `queryString` is used to enabled query string support, so if the url contains a toggle query string, then the feature toggle will be forced to the set value.
 
-The called function has access to the route, user session and the store, a boolean must be returned to determine access.
+You can control the access of the query string using a function, this can be defined using the following approach.
+
+1. Create a new plugins file and import it into your nuxt.config.js file.
+
+2. Add the following code to your new plugin
+
+```
+export default function({ $featureToggle }) {
+  $featureToggle.isQueryStringAllowed(props => {
+    return true;
+  })
+}
+```
+
+Here you can access the props for the feature toggle component, and you can access the context using the exported function.
+
+If no function is defined, and `queryString` is true, then all query strings are allowed.
 
 ### Usage
 
