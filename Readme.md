@@ -21,8 +21,6 @@
 - Dynamically pull in your feature toggles when the application starts
 - Set a static list of feature toggles
 - Optional query string support to override a feature toggle
-- Works with all modes (universal, spa, generate)
-- For Nuxt 1.x and higher
 
 ## Usage
 
@@ -73,9 +71,9 @@ To use the query string with your feature toggles, first enable it in your confi
 ```
 module.exports = {
   modules: ['nuxt-feature-toggle'],
-  queryString: true,
 
   featureToggle: {
+    queryString: true,
     toggles: {
       'my-unique-key': true
     }
@@ -83,11 +81,13 @@ module.exports = {
 }
 ```
 
-The option `queryString` is used to enabled query string support, so if the url contains a toggle query string, then the feature toggle will be forced to the set value.
+The option `queryString` is used to enable query string support, so if the url contains a toggle query string, then the feature toggles with the matching value will be forced to show.
+
+### Allowing access
 
 You can control the access of the query string using a function, this can be defined using the following approach.
 
-1. Create a new plugins file and import it into your nuxt.config.js file.
+1. Create a new plugin file and import it into your nuxt.config.js file.
 
 2. Add the following code to your new plugin
 
@@ -101,11 +101,11 @@ export default function({ $featureToggle }) {
 
 Here you can access the props for the feature toggle component, and you can access the context using the exported function.
 
-If no function is defined, and `queryString` is true, then all query strings are allowed.
+If no function is defined, and the `queryString` option is true, then all query strings are allowed.
 
 ### Usage
 
-Once the querystring options are setup, you can enter the following to change the feature toggle
+Once the querystring options are setup, you can enter the following to change the feature toggle, ensure `toggle_` is prefixed to the name of the feature toggle.
 
 ```
 https://website.com?toggle_my-unique-key=false
