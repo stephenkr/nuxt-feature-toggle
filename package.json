@@ -1,0 +1,45 @@
+{
+  "name": "nuxt-feature-toggle",
+  "description": "Feature toggle module for Nuxt.js",
+  "version": "1.0.0",
+  "main": "lib/module/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nuxt start examples/demo",
+    "dev": "nuxt examples/demo",
+    "lint": "eslint lib test",
+    "lint-fix": "eslint --fix lib test",
+    "test": "npm run lint && jest",
+    "release": "standard-version && git push --follow-tags && npm publish"
+  },
+  "contributors": [
+    {
+      "name": "Stephen kerr <stephenkerr0312@gmail.com>",
+      "url": "https://github.com/stephenkr"
+    }
+  ],
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "nuxt": "^2.4.0",
+    "@nuxtjs/pwa": "^2.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "@nuxtjs/eslint-config": "^0.0.1",
+    "babel-eslint": "^8.2.1",
+    "eslint": "^5.0.1",
+    "eslint-config-standard": ">=12.0.0",
+    "eslint-plugin-import": ">=2.14.0",
+    "eslint-plugin-jest": ">=21.24.1",
+    "eslint-plugin-node": ">=7.0.1",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-promise": ">=4.0.1",
+    "eslint-plugin-standard": ">=4.0.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "2.6.2",
+    "prettier": "1.14.3",
+    "standard-version": "^6.0.1"
+  }
+}
