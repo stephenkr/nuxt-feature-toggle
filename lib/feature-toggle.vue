@@ -24,6 +24,11 @@ export default {
       return `toggle_${this.name}`
     },
 
+    hasQueryStringWithToggle(){
+      const key = this.queryStringKey
+      return !!this.$route.query[key];
+    },
+
     canShowWithQueryString() {
       const key = this.queryStringKey
 
@@ -35,7 +40,7 @@ export default {
         (this.$featureToggle &&
           this.$featureToggle.toggles &&
           this.$featureToggle.toggles[this.name] === this.value &&
-          !this.queryString) ||
+          !this.hasQueryStringWithToggle) ||
         (this.queryString &&
           this.isQueryStringAllowed &&
           this.canShowWithQueryString)
