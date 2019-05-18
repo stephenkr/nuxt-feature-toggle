@@ -62,7 +62,7 @@ To use the query string with your feature toggles, first enable it in your confi
 module.exports = {
   modules: ['nuxt-feature-toggle'],
   queryString: {
-    enabled: true,
+    isEnabled: true,
     isAllowed: () => {
       return true;
     }
