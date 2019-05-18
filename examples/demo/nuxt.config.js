@@ -29,7 +29,7 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: ['@/plugins/featureToggleExtend'],
 
   /*
   ** Nuxt.js modules
@@ -57,12 +57,7 @@ export default {
   },
 
   featureToggle: {
-    queryString: {
-      isEnabled: true,
-      isAllowed: () => {
-        return true
-      }
-    },
+    queryString: true,
 
     toggles: () => {
       return Promise.resolve({
