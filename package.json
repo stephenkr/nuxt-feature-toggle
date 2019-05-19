@@ -18,10 +18,10 @@
     "preview": "standard-version --dry-run",
     "release": "standard-version && git push --follow-tags"
   },
+  "repository": "https://github.com/stephenkr/nuxt-feature-toggle",
   "contributors": [
     {
-      "name": "Stephen kerr <stephenkerr0312@gmail.com>",
-      "url": "https://github.com/stephenkr"
+      "name": "Stephen kerr <stephenkerr0312@gmail.com>"
     }
   ],
   "files": [
@@ -29,6 +29,10 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "testEnvironment": "node"
   },
   "dependencies": {},
   "devDependencies": {
