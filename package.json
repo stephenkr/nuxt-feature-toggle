@@ -4,6 +4,13 @@
   "version": "0.3.1",
   "main": "lib/module/index.js",
   "license": "MIT",
+  "keywords": [
+    "nuxt",
+    "nuxtjs",
+    "toggle",
+    "feature-toggle",
+    "feature-switch"
+  ],
   "scripts": {
     "lint": "eslint lib test",
     "lint-fix": "eslint --fix lib test",
