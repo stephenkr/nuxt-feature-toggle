@@ -61,7 +61,8 @@ export default {
 
     toggles: () => {
       return Promise.resolve({
-        'my-unique-key': true
+        'my-unique-key': true,
+        'body-section': 'option-1'
       })
     }
   }
