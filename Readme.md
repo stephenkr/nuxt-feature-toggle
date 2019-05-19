@@ -113,6 +113,19 @@ https://website.com?toggle_my-unique-key=false
 
 This will set the feature toggle 'my-unique-key' to false when viewing the page.
 
+# To use the demo
+
+1. Go to the `examples/demo` folder
+2. Run the command `yarn`
+3. Once done, run `yarn dev`
+4. Navigate to `http://localhost:3000`
+
+## About the demo
+
+The demo will show how the query string functionality works with the feature toggles. You should see a control box on the left hand side where you can manipulate the query strings in the URL. This will update the feature toggle on the page.
+
+![](./docs/assets/demo-1.gif)
+
 # License
 
 <a href="./LICENSE">MIT License</a>
