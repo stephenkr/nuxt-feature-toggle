@@ -37,11 +37,11 @@ export default {
 
     canShow() {
       return (
-        (this.$featureToggle &&
+        !!(this.$featureToggle &&
           this.$featureToggle.toggles &&
           this.$featureToggle.toggles[this.name] === this.value &&
           !this.hasQueryStringWithToggle) ||
-        (this.queryString &&
+        !!(this.queryString &&
           this.isQueryStringAllowed &&
           this.canShowWithQueryString)
       )
