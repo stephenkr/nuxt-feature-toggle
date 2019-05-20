@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.2](https://github.com/stephenkr/nuxt-feature-toggle/compare/v0.3.1...v0.3.2) (2019-05-20)
+
+
+### Tests
+
+* Add some spec coverage ([3e1271e](https://github.com/stephenkr/nuxt-feature-toggle/commit/3e1271e))
+
+
+
 ### [0.3.1](https://github-stephenkr///compare/v0.3.0...v0.3.1) (2019-05-18)
 
 
