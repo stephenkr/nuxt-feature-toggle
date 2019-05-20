@@ -1,7 +1,7 @@
 {
   "name": "nuxt-feature-toggle",
   "description": "Feature toggle module for Nuxt.js",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "main": "lib/module.js",
   "license": "MIT",
   "keywords": [
