@@ -2,14 +2,21 @@
 <p align="center">This is a simple module for Nuxt.js to add support for a feature toggle system.</p>
 
 <p align="center">
+  <a href="https://david-dm.org/nuxt-community/auth-module">
+    <img alt="" src="https://david-dm.org/nuxt-community/auth-module/status.svg?style=flat-square">
+  </a>
   <a href="https://standardjs.com">
     <img alt="" src="https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square">
   </a>
   <a href="https://www.npmjs.com/package/nuxt-feature-toggle">
     <img alt="" src="https://img.shields.io/npm/v/nuxt-feature-toggle/latest.svg?style=flat-square">
   </a>
+  <br/>
   <a href="https://www.npmjs.com/package/nuxt-feature-toggle">
     <img alt="" src="https://img.shields.io/npm/dt/nuxt-feature-toggle.svg?style=flat-square">
+  </a>
+  <a href="https://circleci.com/gh/stephenkr/nuxt-feature-toggle">
+    <img alt="" src="https://img.shields.io/circleci/project/github/stephenkr/nuxt-feature-toggle.svg?style=flat-square">
   </a>
 </p>
 
