@@ -2,8 +2,8 @@
 <p align="center">This is a simple module for Nuxt.js to add support for a feature toggle system.</p>
 
 <p align="center">
-  <a href="https://david-dm.org/nuxt-community/auth-module">
-    <img alt="" src="https://david-dm.org/nuxt-community/auth-module/status.svg?style=flat-square">
+  <a href="https://david-dm.org/stephenkr/nuxt-feature-toggle">
+    <img alt="" src="https://david-dm.org/stephenkr/nuxt-feature-toggle/status.svg?style=flat-square">
   </a>
   <a href="https://standardjs.com">
     <img alt="" src="https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square">
