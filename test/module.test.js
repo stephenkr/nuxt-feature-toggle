@@ -98,6 +98,24 @@ describe('FeatureToggle', () => {
 
       expect(actual).toBe(true)
     })
+
+    it('should return false if the query string does not match and with a custom prefix', () => {
+      const wrapper = getWrapper({
+        extraPropsData: {
+          prefix: '_t'
+        },
+        extraQuery: {
+          '_t_my-unique-toggle': 'false'
+        },
+        extraFeatureToggle: {
+          queryString: true
+        }
+      })
+
+      const actual = wrapper.vm.canShowWithQueryString
+
+      expect(actual).toBe(false)
+    })
   })
 
   describe('queryStringKey', () => {
