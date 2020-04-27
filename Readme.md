@@ -90,6 +90,17 @@ module.exports = {
 
 The option `queryString` is used to enable query string support, so if the url contains a toggle query string, then the feature toggles with the matching value will be forced to show.
 
+### Change key prefix
+
+To change the default toggle prefix for `toggle`, you can now pass an option to change it to anything you like, such as:
+```
+<feature-toggle name="my-unique-key" :value="true" prefix="_t">
+  <p>This can only show if the toggle is enabled</p>
+</feature-toggle>
+```
+
+In this case, the key is now `_t_my-unique-key`
+
 ### Allowing access
 
 You can control the access of the query string using a function, this can be defined using the following approach.
