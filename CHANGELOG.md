@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/stephenkr/nuxt-feature-toggle/compare/v1.0.1...v1.1.0) (2020-04-27)
+
+
+### Features
+
+* Support custom toggle prefix ([#13](https://github.com/stephenkr/nuxt-feature-toggle/issues/13)) ([195eb80](https://github.com/stephenkr/nuxt-feature-toggle/commit/195eb80))
+
+
+
 ### [1.0.1](https://github.com/stephenkr/nuxt-feature-toggle/compare/v0.3.4...v1.0.1) (2019-08-10)
 
 
