@@ -9,7 +9,11 @@ export default {
   name: 'feature-toggle',
   props: {
     name: String,
-    value: [String, Boolean]
+    value: [String, Boolean],
+    prefix: {
+      type: String,
+      default: 'toggle'
+    }
   },
   computed: {
     queryString() {
@@ -21,7 +25,7 @@ export default {
     },
 
     queryStringKey() {
-      return `toggle_${this.name}`
+      return `${this.prefix}_${this.name}`
     },
 
     hasQueryStringWithToggle(){
