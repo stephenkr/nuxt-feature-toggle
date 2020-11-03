@@ -36,7 +36,7 @@
 The toggles can be defined as a function or just as an object.
 
 #### As a function
-```
+```javascript
 module.exports = {
   modules: ['nuxt-feature-toggle'],
 
@@ -51,7 +51,7 @@ module.exports = {
 ```
 
 #### As an object
-```
+```javascript
 module.exports = {
   modules: ['nuxt-feature-toggle'],
 
@@ -65,17 +65,52 @@ module.exports = {
 
 ### 2. Use the feature toggle component
 
-```
+```html
 <feature-toggle name="my-unique-key" :value="true">
   <p>This can only show if the toggle is enabled</p>
 </feature-toggle>
 ```
 
+## RuntimeConfig support
+If using Nuxt >= 2.13, you can use the new `publicRuntimeConfig` setting in `nuxt.config.js` to **configure 
+feature toggles on-the-fly without having to rebuild** (only need to restart Nuxt using `nuxt start`).  
+
+```javascript
+module.exports = {
+  modules: ['nuxt-feature-toggle'],
+  publicRuntimeConfig: {
+    toggles: {
+      somePreviewFeature: process.env.FEATURE_ENABLE_SOME_PREVIEW_FEATURE,
+    }
+  }
+}
+```
+Note 1: `FEATURE_ENABLE_SOME_PREVIEW_FEATURE` is an arbitrary name, the package doesn't depend on it.  
+You can use "Feature Flag" names eg. `FF_PREVIEW_FEATURE` or whatever suits you. 
+
+Note 2: If you want to use `0/1` or `"true/false"` strings to enable/disable your features, 
+[check out this great package which makes it much easier.](https://github.com/sindresorhus/yn) 
+
+Now you just need to change your environment variables an restart Nuxt to toggle your features!
+
+### Important note on `publicRuntimeConfig` and Promise / function based toggles 
+**If you're using function/promise based toggles resolution, you should not use `publicRuntimeConfig`:**
+while it's technically *possible* to use a function in `runtimeConfig`, [it is not recommended](https://nuxtjs.org/guide/runtime-config/).  
+
+**A function/promise based toggles resolution will NOT be resolved in the plugin, only on build.**  
+
+Instead you should either:  
+* Use a Promise/Function in `featureToggle.toggles` like you did before  
+* Switch to object mode in `publicRuntimeConfig.featureToggle.toggles`.  
+  
+As now you can use environment variables and just restart the server, many people can get rid of Promises returning toggles depending on the environment.
+
+
 ## Use with the query string
 
 To use the query string with your feature toggles, first enable it in your configuration file.
 
-```
+```javascript
 module.exports = {
   modules: ['nuxt-feature-toggle'],
 
@@ -93,7 +128,7 @@ The option `queryString` is used to enable query string support, so if the url c
 ### Change key prefix
 
 To change the default toggle prefix for `toggle`, you can now pass an option to change it to anything you like, such as:
-```
+```html
 <feature-toggle name="my-unique-key" :value="true" prefix="_t">
   <p>This can only show if the toggle is enabled</p>
 </feature-toggle>
@@ -109,7 +144,7 @@ You can control the access of the query string using a function, this can be def
 
 2. Add the following code to your new plugin
 
-```
+```javascript
 export default function({ $featureToggle }) {
   $featureToggle.isQueryStringAllowed(props => {
     return true;
