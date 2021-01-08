@@ -79,8 +79,10 @@ feature toggles on-the-fly without having to rebuild** (only need to restart Nux
 module.exports = {
   modules: ['nuxt-feature-toggle'],
   publicRuntimeConfig: {
-    toggles: {
-      somePreviewFeature: process.env.FEATURE_ENABLE_SOME_PREVIEW_FEATURE,
+    featureToggle:{
+      toggles: {
+        somePreviewFeature: process.env.FEATURE_ENABLE_SOME_PREVIEW_FEATURE,
+      }
     }
   }
 }
