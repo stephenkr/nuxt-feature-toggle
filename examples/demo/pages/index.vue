@@ -73,6 +73,11 @@
           </feature-toggle>
         </section>
       </div>
+      <br>
+      <hr >
+      <p>Serialized toggles (output of <code>$featureToggle.toggles</code>):</p>
+      <pre>{{ JSON.stringify($featureToggle.toggles, null, 2) }}</pre>
+      <hr>
     </div>
   </section>
 </template>
@@ -85,7 +90,7 @@ export default {
     },
     toggleMyUniqueKey: {
       get() {
-        return this.$route.query['toggle_my-unique-key'] || true
+        return this.$route.query['toggle_my-unique-key'] || this.$featureToggle.toggles['my-unique-key'] || true
       },
       set(newValue) {
         this.$router.push({
@@ -99,7 +104,7 @@ export default {
     },
     toggleBodySection: {
       get() {
-        return this.$route.query['toggle_body-section'] || 'option-1'
+        return this.$route.query['toggle_body-section'] || this.$featureToggle.toggles['body-section'] || 'option-1'
       },
       set(newValue) {
         this.$router.push({
@@ -160,5 +165,22 @@ export default {
 }
 .demo-panel table td:last-child {
   text-align: right;
+}
+
+hr {
+  margin: 2rem 0;
+}
+
+code {
+  display: inline-block;
+  background-color: oldlace;
+  padding: 0.15rem 0.25rem;
+  color: crimson;
+}
+
+pre {
+  background-color: oldlace;
+  margin: 1rem 0;
+  padding: 1rem;
 }
 </style>
