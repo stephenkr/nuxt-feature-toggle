@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 import FeatureToggle from '../lib/feature-toggle.vue'
+import { defaultOptions } from '../lib/module'
 
 const propsData = {
   name: 'my-unique-toggle',
@@ -19,6 +20,7 @@ const getWrapper = ({ extraFeatureToggle, extraQuery, extraPropsData } = {}) =>
         }
       },
       $featureToggle: {
+        ...defaultOptions,
         ...extraFeatureToggle,
         toggles: {
           'my-unique-toggle': true
@@ -77,7 +79,6 @@ describe('FeatureToggle', () => {
       })
 
       const actual = wrapper.vm.canShowWithQueryString
-
       expect(actual).toBe(true)
     })
 
@@ -177,6 +178,20 @@ describe('FeatureToggle', () => {
       const actual = wrapper.vm.isQueryStringAllowed
 
       expect(actual).toBe(false)
+    })
+  })
+
+  describe('queryStringPrefix', () => {
+    it('should return the correct key when configuring in module options', () => {
+      const wrapper = getWrapper({
+        extraFeatureToggle: {
+          queryStringPrefix: '_t'
+        }
+      })
+
+      const actual = wrapper.vm.queryStringKey
+
+      expect(actual).toBe('_t_my-unique-toggle')
     })
   })
 })
