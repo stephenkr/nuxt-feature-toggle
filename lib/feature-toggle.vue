@@ -12,10 +12,14 @@ export default {
     value: [String, Boolean],
     prefix: {
       type: String,
-      default: 'toggle'
+      default: undefined
     }
   },
   computed: {
+    prefixValue () {
+      return this.prefix || this.$featureToggle.queryStringPrefix;
+    },
+
     queryString() {
       return this.$featureToggle.queryString
     },
@@ -25,7 +29,7 @@ export default {
     },
 
     queryStringKey() {
-      return `${this.prefix}_${this.name}`
+      return `${this.prefixValue}_${this.name}`
     },
 
     hasQueryStringWithToggle(){
