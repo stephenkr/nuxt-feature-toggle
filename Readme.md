@@ -31,7 +31,16 @@
 
 ## Usage
 
-### 1. Add module to nuxt.config.js along with the feature toggle options.
+### 1. Install the plugin
+
+```sh
+npm install nuxt-feature-toggle
+# or
+yarn add nuxt-feature-toggle
+```
+
+
+### 2. Add module to nuxt.config.js along with the feature toggle options.
 
 The toggles can be defined as a function or just as an object.
 
@@ -72,8 +81,8 @@ module.exports = {
 ```
 
 ## RuntimeConfig support
-If using Nuxt >= 2.13, you can use the new `publicRuntimeConfig` setting in `nuxt.config.js` to **configure 
-feature toggles on-the-fly without having to rebuild** (only need to restart Nuxt using `nuxt start`).  
+If using Nuxt >= 2.13, you can use the new `publicRuntimeConfig` setting in `nuxt.config.js` to **configure
+feature toggles on-the-fly without having to rebuild** (only need to restart Nuxt using `nuxt start`).
 
 ```javascript
 module.exports = {
@@ -87,24 +96,23 @@ module.exports = {
   }
 }
 ```
-Note 1: `FEATURE_ENABLE_SOME_PREVIEW_FEATURE` is an arbitrary name, the package doesn't depend on it.  
-You can use "Feature Flag" names eg. `FF_PREVIEW_FEATURE` or whatever suits you. 
+> Note 1: `FEATURE_ENABLE_SOME_PREVIEW_FEATURE` is an arbitrary name, the package doesn't depend on it.
+You can use "Feature Flag" names eg. `FF_PREVIEW_FEATURE` or whatever suits you.
 
-Note 2: If you want to use `0/1` or `"true/false"` strings to enable/disable your features, 
-[check out this great package which makes it much easier.](https://github.com/sindresorhus/yn) 
+> Note 2: This package has built-in [yn](https://github.com/sindresorhus/yn) support which mean you don't have to do anything to get your env variable as Boolean value. You can also use `0/1`, `y/n` or any other value supported by the package. This will also work when `queryString` is set to `true`.
 
 Now you just need to change your environment variables an restart Nuxt to toggle your features!
 
-### Important note on `publicRuntimeConfig` and Promise / function based toggles 
+### Important note on `publicRuntimeConfig` and Promise / function based toggles
 **If you're using function/promise based toggles resolution, you should not use `publicRuntimeConfig`:**
-while it's technically *possible* to use a function in `runtimeConfig`, [it is not recommended](https://nuxtjs.org/guide/runtime-config/).  
+while it's technically *possible* to use a function in `runtimeConfig`, [it is not recommended](https://nuxtjs.org/guide/runtime-config/).
 
-**A function/promise based toggles resolution will NOT be resolved in the plugin, only on build.**  
+**A function/promise based toggles resolution will NOT be resolved in the plugin, only on build.**
 
-Instead you should either:  
-* Use a Promise/Function in `featureToggle.toggles` like you did before  
-* Switch to object mode in `publicRuntimeConfig.featureToggle.toggles`.  
-  
+Instead you should either:
+* Use a Promise/Function in `featureToggle.toggles` like you did before
+* Switch to object mode in `publicRuntimeConfig.featureToggle.toggles`.
+
 As now you can use environment variables and just restart the server, many people can get rid of Promises returning toggles depending on the environment.
 
 
