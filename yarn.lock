@@ -6457,3 +6457,8 @@ yargs@^15.3.1:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
+
+yn@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/yn/-/yn-5.0.0.tgz#63fc2e2e0056cf294397eed6ad4a3fbdf707f26f"
+  integrity sha512-+l37+9TyGEsyxGLaTg6QgYy5KnOp74ZZl4dPFLQpBWSkO99uBC5jnS0pOGwXFViPbiaEtWbParH2KrgWWF2duQ==
