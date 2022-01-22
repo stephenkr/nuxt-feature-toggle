@@ -10,7 +10,7 @@
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "cross-env": "^7.0.2",
     "lodash": "4.17.19",
-    "node-fetch": "2.6.1",
+    "node-fetch": "3.1.1",
     "nuxt": "^2.12.2"
   },
   "devDependencies": {
