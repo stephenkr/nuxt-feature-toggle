@@ -1,9 +1,3 @@
-<template>
-  <div v-if="canShow">
-    <slot/>
-  </div>
-</template>
-
 <script>
 export default {
   name: 'feature-toggle',
@@ -64,6 +58,9 @@ export default {
         (!isQueryStringAllowed || isQueryStringAllowed(this.$props))
       )
     }
+  },
+  render() {
+    return this.canShow ? this.$slots.default : null;
   }
 }
 </script>
